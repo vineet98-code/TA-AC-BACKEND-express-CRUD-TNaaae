@@ -1,8 +1,9 @@
 var express = require('express');
 var path = require('path');
+// const { send } = require('process');
 
 // router file
-var indexRouter = require('./routes/index');
+// var indexRouter = require('./routes/index');
 var booksRouter = require('./routes/books');
 var studentsRouter = require('./routes/students');
 
@@ -38,9 +39,15 @@ app.use((req, res, next) => {
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+// It looks for any form and simply put into the body
+app.use(express.urlencoded({ extended: false}));
+
+// app.use('/', (req, res) => {
+//     res.render('index.ejs');
+// })
 
 // routing middleware with '/' pattern in index.js
-app.use('/', indexRouter);
+// app.use('/', indexRouter);
 
 // routing middleware with '/books' pattern in books.js
 app.use('/books', booksRouter);
@@ -49,13 +56,12 @@ app.use('/books', booksRouter);
 app.use('/students', studentsRouter);
 
 
-
-// error handled middleware
-app.use((req, res) => {
-  res.send('Page not Found');
+ // error handled middleware
+app.use((req, res, next) => {
+  res.status(404).send('Page not Found');
 });  
 
 
-app.listen(3000, () => {
-    console.log(`server listening on port 3k`);
+app.listen(2000, () => {
+    console.log(`server listening on port 2k`);
 })
