@@ -1,19 +1,19 @@
 // All the students related route which are related to specific resources
 var express = require('express');
 
-// To handle the router, express.Router module
+
 var router = express.Router();
 
 // create students form => GET request on "/students/new"
-router.get("/new", (req,res) => {
-    res.send('Book form');
-    // res.render(formpage.ejs);
+router.get('/new', (req,res) => {
+    // res.send('Book form');
+    res.render('studentForm');
 })
 
-// create a students => POST request on "/students"
+// Create a students => POST request on "/students"
 router.post('/', (req, res) =>{
     // grab the data and asave the data to database
-
+    res.send(req.body);
 });
 
 // list students => GET request on "/students"
