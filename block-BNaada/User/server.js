@@ -9,7 +9,7 @@ var usersRouter = require('./routes/user');
 
 // connect to database
 mongoose.connect(
-    "mongodb://localhost/User", 
+    "mongodb://localhost/user-diary", 
     { useNewUrlparser: true, useUnifiedTopology: true },
      (err) => {
          console.log(err ? err : "Connected to database");
