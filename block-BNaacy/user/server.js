@@ -4,12 +4,12 @@ var path = require('path');
 
 // router file
 var indexRouter = require('./routes/index');
-var booksRouter = require('./routes/books');
+var usersRouter = require('./routes/user');
 
 
 // connect to database
 mongoose.connect(
-    "mongodb://localhost/bookstore", 
+    "mongodb://localhost/User", 
     { useNewUrlparser: true, useUnifiedTopology: true },
      (err) => {
          console.log(err ? err : "Connected to database");
@@ -48,7 +48,7 @@ app.use(express.urlencoded({ extended: false}));
 // routing middleware with '/users' pattern in users.js
 app.use('/', indexRouter);
 // this middleware, it is able to move to actual router, whic is going to handle that specific case
-app.use('/books', booksRouter);
+app.use('/user', usersRouter);
 
 
 // error handled middleware
@@ -63,6 +63,6 @@ app.use((err, req, res, next) => {
     res.send(err);
 })
 
-app.listen(2000, () => {
-    console.log(`server listening on port 2k`);
+app.listen(4000, () => {
+    console.log(`server listening on port 4k`);
 }) 
