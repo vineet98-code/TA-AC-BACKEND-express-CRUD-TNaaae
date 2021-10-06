@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/user/<%= user.id %>" method ="POST">
+        <input type="text" name="name" placeholder="Name" value=<%= user.name %>>
+        <input type="text" name="email" placeholder="Email" value=<%= user.email %>>
+        <input type="number" name="age" placeholder="Age" value=<%= user.age %>>
+        <input type="text" name="address" placeholder="Address" value=<%= user.address %>>
+        <textarea type="text" name="bio"  cols="10" rows="10" placeholder="Bio" value=<%= user.address %></textarea>
+        <input type="text" name="Hobbies" placeholder="Hobbies" value=<%= user.hobbies %>>
+        
+        <input type="submit" value="Update User">
+    </form>
+</body>
+</html
